@@ -55,7 +55,8 @@ class NotificationsTestCase(test.TestCase):
         fake_notifier.stub_notifier(self.stubs)
         self.addCleanup(fake_notifier.reset)
 
-        self.flags(network_manager='nova.network.manager.FlatManager',
+        self.flags(compute_driver='nova.virt.fake.FakeDriver',
+                   network_manager='nova.network.manager.FlatManager',
                    notify_on_state_change="vm_and_task_state",
                    host='testhost')
 
